@@ -1,0 +1,12 @@
+{
+    "manifest_version": 2,
+    "name": "Link Manager",
+    "version": "1.0.0",
+    "description": "Manages links.",
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "128": "link.png"
+    }
+}
