@@ -6,7 +6,19 @@
     "browser_action": {
         "default_popup": "popup.html"
     },
+    "permissions": [
+        "storage"
+    ],
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": true
+    },
     "icons": {
         "128": "link.png"
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
     }
 }

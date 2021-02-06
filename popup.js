@@ -1,31 +1,28 @@
 
-class Link {
-    constructor(url) {
-        this.url = url;
-        // this.favicon = ...; logic for favicon to base64
-    }
 
-    toString() {
-        return new URL(this.url).host.replace("www.", "");
-    }
-}
+const lockButton = document.getElementById("lock");
 
-for (let index = 0; index < 9; index++) {
-    // 1. create link object
-    let link = new Link("https://www.google.be" + index);
+lockButton.addEventListener('click', () => {
+    chrome.storage.sync.clear(callback => {
+        console.log(callback);
+    });
+});
 
-    // 2. create placeholders for the link
-    let div = document.createElement("div");
-    div.setAttribute("class", "item");
+document.getElementById('openAll').addEventListener("click", () => {
+    chrome.storage.sync.get({ urls: "", }, items => {
+        for (let i = 0; i < items.urls.length; i++) {
+            openWebsite(items.urls[i]);
+        }
+    });
+});
 
-    // 3. url name
-    let textnode = document.createTextNode(link.toString());
 
-    div.appendChild(textnode);
 
-    document.getElementById("row").appendChild(div);
-}
-
+// document.getElementById('openAll').addEventListener("click", () => {
+//     for (let i = 0; i < itemCollection.length; i++) {
+//         itemCollection[i].click();
+//     }
+// });
 
 // function openWebsites() {
 //     for (let i = 0; i < urls.length; i++) {
@@ -38,3 +35,10 @@ for (let index = 0; index < 9; index++) {
 //         }
 //     }
 // }
+
+function openWebsite(url) {
+    chrome.tabs.create({
+        url: url,
+        active: false
+    });
+}
