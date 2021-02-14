@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Extension Options</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/toasty.min.css">
+    <link rel="stylesheet" href="/css/options.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="col">
+                <div id="options">
+                    <!-- <button class="btn btn-danger ml-2" id="cancel-password">x</button> -->
+                    <!-- <input type="checkbox" class="toggle" id="clear-on-start-toggle"> -->
+                    
+                    <h5>Add Links</h5>
+
+                    <label class="info text-warning">
+                        The links should be seperated with a <strong>comma</strong><br>
+                        Including <strong>http/https</strong> isn't necessary
+                    </label>
+
+                    <label class="info text-info mt-2" for="from-clipboard">
+                        From <strong class="bold">clipboard</strong> (Ctrl+V)
+                    </label>
+
+                    <button type="button" class="btn btn-outline-info btn-md btn-block mb-2" id="from-clipboard"
+                        disabled>Load</button>
+
+                    <!-- add new link textbox & button -->
+                    <label class="info text-success" for="add-link-textbox">From <strong>text-field</strong></label>
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control" id="add-link-textbox" placeholder="link">
+                        <div class="input-group-append">
+                            <button class="btn btn-success" type="button" id="add-link-button">Add</button>
+                        </div>
+                    </div>
+
+                    <!-- load from file -->
+                    <label class="info text-warning" for="inputGroupFile01">From <strong>file</strong></label>
+                    <div class="input-group mb-5">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-warning" type="button" id="load-file" disabled>Load</button>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01">
+                            <label class="custom-file-label" for="inputGroupFile01" id="browse-button">Choose
+                                file</label>
+                        </div>
+                    </div>
+
+                    <h5>Configure Password</h5>
+
+                    <!-- set password toggle -->
+                    <label class="info" for="password-switch">Enable</label>
+                    <div class="custom-control custom-switch custom-switch-sm" id="password-switch-group">
+                        <input type="checkbox" class="custom-control-input" id="password-switch">
+                        <label class="custom-control-label" for="password-switch"></label>
+                    </div>
+
+                    <!-- set password button & textbox -->
+                    <div class="input-group mb-4 password-form">
+                        <div class="input-group-prepend">
+                            <button class="btn btn-primary" type="button" id="password-button">Confirm</button>
+                        </div>
+                        <input type="password" class="form-control" id="password-input">
+                        <div class="input-group-append">
+                            <button class="btn btn-danger" type="button" id="password-delete-button">Delete</button>
+                        </div>
+                    </div>
+
+                    <!-- delete all links -->
+                    <label class="info" for="delete-all-links">This is <strong>irreversible</strong></label>
+                    <form id="delete-all-links-form">
+                        <div class="form-row align-items-center">
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-outline-danger btn-sm" id="delete-all-links">Delete
+                                    All Links</button>
+                            </div>
+                            <div class="col-auto ">
+                                <div class="custom-control custom-checkbox mr-sm-2">
+                                    <input type="checkbox" class="custom-control-input confirm-delete-all-links"
+                                        id="customControlAutosizing">
+                                    <label class="custom-control-label" for="customControlAutosizing">I'm sure.</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col">
+                <div id="links"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="output"></div>
+
+    <!-- https://superuser.com/questions/157925/how-to-download-favicon-from-website -->
+    <!-- chrome://favicon/https://www.pixiv.net -->
+
+    <script src="/js/lib/jquery-3.4.1.min.js"></script>
+    <script src="/js/lib/popper.min.js"></script>
+    <script src="/js/lib/bootstrap.min.js"></script>
+    <script src="/js/lib/bootstrap-show-password.min.js"></script>
+    <script src="/js/lib/sha256.min.js"></script>
+    <script src="/js/lib/toasty.min.js"></script>
+    <script src="/js/lib/psl.min.js"></script>
+    <script src="/js/options.js"></script>
+</body>
+
+</html>

@@ -1,1 +1,4 @@
-https://google.be,youtube.com,trash.,example.com
+,"https://google.be",
+'youtube.com',
+trash.,
+example.com,
